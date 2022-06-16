@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Widget.Pristyn.TextInputLayout.Dense.Outline" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="hintTextAppearance">@style/TextInputLayoutHint</item>
+        <item name="helperTextTextAppearance">@style/TextInputLayoutHelper</item>
+        <item name="errorTextAppearance">@style/TextInputLayoutError</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textColorHint">@color/editextHintColor</item>
+        <item name="colorControlNormal">@color/grey_400</item>
+        <item name="colorControlActivated">@color/colorAccent</item>
+        <item name="colorControlHighlight">@color/colorAccent</item>
+    </style>
+    <style name="TextInputLayoutHint" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+    <style name="TextInputLayoutHelper" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">14sp</item>
+
+    </style>
+    <style name="TextInputLayoutError" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+</resources>
