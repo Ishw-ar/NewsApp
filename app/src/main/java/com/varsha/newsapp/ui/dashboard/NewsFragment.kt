@@ -11,7 +11,9 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.varsha.newsapp.databinding.FragmentNewsBinding
 import com.varsha.newsapp.util.NetworkResult
+import com.varsha.newsapp.util.addFragment
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.android.synthetic.main.activity_dash_board.*
 
 @AndroidEntryPoint
 class NewsFragment : Fragment() {
@@ -31,9 +33,22 @@ class NewsFragment : Fragment() {
 
         setUpRecyclerView()
         subscribeToObservables()
+        clickEvents()
 
 
         return binding.root
+    }
+
+    private fun clickEvents() {
+        newsAdapter.setOnItemClickListener {
+            val fragment = NewsDetailFragment()
+            val bundle = Bundle()
+            requireActivity().run {
+                bundle.putParcelable("article", it)
+                fragment.arguments = bundle
+                addFragment(fl_container.id, fragment)
+            }
+        }
     }
 
     private fun setUpRecyclerView() {
@@ -52,17 +67,21 @@ class NewsFragment : Fragment() {
                         newsAdapter.differ.submitList(it.articles)
 
                     }
+                    binding.progressNews.visibility = View.GONE
 
                 }
                 is NetworkResult.Loading -> {
-
+                    binding.progressNews.visibility = View.VISIBLE
                 }
                 is NetworkResult.Error -> {
                     Toast.makeText(requireContext(), response.message, Toast.LENGTH_SHORT).show()
+                    binding.progressNews.visibility = View.GONE
                 }
             }
         })
 
+
     }
+
 
 }

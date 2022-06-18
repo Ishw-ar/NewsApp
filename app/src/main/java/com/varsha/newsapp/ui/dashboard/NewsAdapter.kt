@@ -1,5 +1,6 @@
 package com.varsha.newsapp.ui.dashboard
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -7,9 +8,9 @@ import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
+import com.varsha.newsapp.R
 import com.varsha.newsapp.databinding.ItemNewsBinding
 import com.varsha.newsapp.model.Article
-
 class NewsAdapter : RecyclerView.Adapter<NewsAdapter.NewsViewHolder>() {
 
     inner class NewsViewHolder(private val binding: ItemNewsBinding) :
@@ -30,8 +31,31 @@ class NewsAdapter : RecyclerView.Adapter<NewsAdapter.NewsViewHolder>() {
             binding.tvPublishedAt.text = data.publishedAt
             binding.tvSource.text = data.source?.name
 
-            binding.cardView.setOnClickListener {
+            binding.containerLayout.setOnClickListener {
                 onItemClickListener?.let { it(data) }
+            }
+            if (data.isLike == true) {
+                binding.ivFavoriteNews.load(
+                    R.drawable.ic_favorite_selected
+                )
+            } else {
+                binding.ivFavoriteNews.load(
+                    R.drawable.ic_favorite_unselected
+                )
+            }
+            binding.flLike.setOnClickListener {
+                if (data.isLike == true) {
+                    binding.ivFavoriteNews.load(
+                        R.drawable.ic_favorite_unselected
+                    )
+                    data.isLike = false
+                } else {
+                    binding.ivFavoriteNews.load(
+                        R.drawable.ic_favorite_selected
+                    )
+                    data.isLike = true
+                }
+
             }
         }
     }

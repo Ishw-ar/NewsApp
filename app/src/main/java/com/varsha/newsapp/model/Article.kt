@@ -1,23 +1,28 @@
 package com.varsha.newsapp.model
 
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.android.parcel.Parcelize
+import kotlinx.android.parcel.RawValue
 
+@Parcelize
 data class Article(
     @SerializedName("author")
-    val author: String?,
+    val author: @RawValue String?,
     @SerializedName("content")
-    val content: String?,
+    val content: @RawValue String?,
     @SerializedName("description")
-    val description: String?,
+    val description: @RawValue String?,
     @SerializedName("publishedAt")
-    val publishedAt: String?,
+    val publishedAt: @RawValue String?,
     @SerializedName("source")
-    val source: Source?,
+    val source: @RawValue Source?,
     @SerializedName("title")
-    val title: String?,
+    val title: @RawValue String?,
     @SerializedName("url")
-    val url: String?,
+    val url: @RawValue String?,
     @SerializedName("urlToImage")
-    val urlToImage: String?
-)
+    val urlToImage: @RawValue String?,
+    var isLike: @RawValue Boolean?
+) : Parcelable

@@ -3,9 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable/favorite_button_background.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/ic_favorite_selected.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/ic_favorite_unselected.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_dash_board.xml" value="0.19375" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.19375" />
         <entry key="app/src/main/res/layout/fragment_news.xml" value="0.19375" />
+        <entry key="app/src/main/res/layout/fragment_news_detail.xml" value="0.12376237623762376" />
         <entry key="app/src/main/res/layout/item_news.xml" value="0.19270833333333334" />
       </map>
     </option>

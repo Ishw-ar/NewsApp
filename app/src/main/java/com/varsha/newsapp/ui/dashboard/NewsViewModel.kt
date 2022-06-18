@@ -22,8 +22,9 @@ class NewsViewModel @Inject constructor(private val newsRepository: NewsReposito
         _newsResponse.value = NetworkResult.Loading()
         newsRepository.getAllNews()
             .collect {
-                _newsResponse.value = it
+                for (item in it.data?.articles!!) {
+                    _newsResponse.value = it
+                }
             }
     }
-
 }
